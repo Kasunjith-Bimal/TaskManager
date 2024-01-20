@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +14,42 @@ namespace TaskManager.Infrastructure.Persistence.Repository.TaskRepository
     public class TaskReadRepository : ITaskReadRepository
     {
         private readonly TaskManagerDbContext _dbContext;
+        private readonly ILogger<TaskReadRepository> logger;
 
-        public TaskReadRepository(TaskManagerDbContext dbContext)
+        public TaskReadRepository(TaskManagerDbContext dbContext, ILogger<TaskReadRepository> logger)
         {
-            _dbContext = dbContext;
+            this._dbContext = dbContext;
+            this.logger = logger;
         }
 
         public async Task<TaskDetail> GetTaskByIdAsync(long taskId)
         {
-            return await _dbContext.TaskDetails.FindAsync(taskId);
+            try
+            {
+                this.logger.LogInformation($"[TaskReadRepository:GetTaskByIdAsync] recieved event taskId : {taskId}");
+                return await this._dbContext.TaskDetails.FindAsync(taskId);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogDebug($"[TaskReadRepository:GetTaskByIdAsync] exception occurred: {ex.Message} - Stacktrace: {ex.StackTrace}");
+                return null;  
+            }
+          
         }
 
         public async Task<List<TaskDetail>> GetAllTasksAsync()
         {
-            return await _dbContext.TaskDetails.ToListAsync();
+            try
+            {
+                this.logger.LogInformation($"[TaskReadRepository:GetAllTasksAsync] recieved event");
+                return await this._dbContext.TaskDetails.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogDebug($"[TaskReadRepository:GetAllTasksAsync] exception occurred: {ex.Message} - Stacktrace: {ex.StackTrace}");
+                return null;   
+            }
+            
         }
     }
 }

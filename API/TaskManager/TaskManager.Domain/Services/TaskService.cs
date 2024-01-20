@@ -30,7 +30,17 @@ namespace TaskManager.Domain.Services
 
         public Task<List<TaskDetail>> GetAllTasksAsync()
         {
-            return _readRepository.GetAllTasksAsync();
+            try
+            {
+                this.logger.LogInformation($"[TaskService:GetAllTasksAsync] recieved event");
+                return _readRepository.GetAllTasksAsync();
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogDebug($"[TaskService:GetAllTasksAsync] exception occurred: {ex.Message} - Stacktrace: {ex.StackTrace}");
+                return null;
+
+            }
         }
 
         public TaskDetail AddTask(TaskDetail task)
