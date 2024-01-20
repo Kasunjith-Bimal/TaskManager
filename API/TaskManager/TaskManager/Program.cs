@@ -44,6 +44,8 @@ try
     //manage all services 
     builder.Services.TaskManagerServices(builder.Configuration, builder.Environment);
 
+    builder.Services.AddMassTransitComponents(builder.Configuration);
+
     builder.Services.AddControllers();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kasunjith(KasunjithL\\OneDrive - Tech One Global Singapore Pte. Ltd\\Desktop\\TASKAPPLICATION\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj": {}
+    "C:\\Users\\Kasunjith Bimal\\Desktop\\TaskApplication\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kasunjith(KasunjithL\\OneDrive - Tech One Global Singapore Pte. Ltd\\Desktop\\TASKAPPLICATION\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj": {
+    "C:\\Users\\Kasunjith Bimal\\Desktop\\TaskApplication\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kasunjith(KasunjithL\\OneDrive - Tech One Global Singapore Pte. Ltd\\Desktop\\TASKAPPLICATION\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\Kasunjith Bimal\\Desktop\\TaskApplication\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj",
         "projectName": "TaskManager.Contracts",
-        "projectPath": "C:\\Users\\Kasunjith(KasunjithL\\OneDrive - Tech One Global Singapore Pte. Ltd\\Desktop\\TASKAPPLICATION\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj",
-        "packagesPath": "C:\\Users\\Kasunjith(KasunjithL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kasunjith(KasunjithL\\OneDrive - Tech One Global Singapore Pte. Ltd\\Desktop\\TASKAPPLICATION\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\obj\\",
+        "projectPath": "C:\\Users\\Kasunjith Bimal\\Desktop\\TaskApplication\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj",
+        "packagesPath": "C:\\Users\\Kasunjith Bimal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kasunjith Bimal\\Desktop\\TaskApplication\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kasunjith(KasunjithL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Kasunjith Bimal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

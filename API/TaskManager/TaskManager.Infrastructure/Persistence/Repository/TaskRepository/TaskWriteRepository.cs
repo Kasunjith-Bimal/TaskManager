@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskManager.Domain.Entities;
 using TaskManager.Domain.Intefaces.ITaskRepository;
+using TaskManager.Domain.Services;
 using TaskManager.Infrastructure.Persistence.EFCore;
 
 namespace TaskManager.Infrastructure.Persistence.Repository.TaskRepository
@@ -12,35 +14,71 @@ namespace TaskManager.Infrastructure.Persistence.Repository.TaskRepository
     public class TaskWriteRepository : ITaskWriteRepository
     {
         private readonly TaskManagerDbContext _dbContext;
+        private readonly ILogger<TaskWriteRepository> logger;
 
-        public TaskWriteRepository(TaskManagerDbContext dbContext)
+        public TaskWriteRepository(TaskManagerDbContext dbContext, ILogger<TaskWriteRepository> logger)
         {
-            _dbContext = dbContext;
+            this._dbContext = dbContext;
+            this.logger = logger;
         }
 
         public TaskDetail AddTask(TaskDetail task)
         {
-            _dbContext.TaskDetails.Add(task);
-            _dbContext.SaveChanges();
-            return task;
+            try
+            {
+                this.logger.LogInformation($"[TaskWriteRepository:AddTask] recieved event task title : {task.Title}");
+                _dbContext.TaskDetails.Add(task);
+                _dbContext.SaveChanges();
+                this.logger.LogInformation($"[TaskWriteRepository:AddTask] success event task id:{task.Id} title : {task.Title}");
+                return task;
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogDebug($"[TaskWriteRepository:AddTask] exception occurred: {ex.Message} - Stacktrace: {ex.StackTrace}");
+                return null;
+            }
+            
         }
 
         public TaskDetail UpdateTask(TaskDetail task)
         {
-            _dbContext.TaskDetails.Update(task);
-            _dbContext.SaveChanges();
-            return task;
+            try
+            {
+                this.logger.LogInformation($"[TaskWriteRepository:UpdateTask] recieved event task id: {task.Id} title : {task.Title}");
+                _dbContext.TaskDetails.Update(task);
+                _dbContext.SaveChanges();
+                this.logger.LogInformation($"[TaskWriteRepository:UpdateTask] success event task id:{task.Id} title : {task.Title}");
+                return task;
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogDebug($"[TaskWriteRepository:UpdateTask] exception occurred: {ex.Message} - Stacktrace: {ex.StackTrace}");
+                return null;
+            }
+           
         }
 
         public async Task<bool> DeleteTask(long taskId)
         {
-            var task = await _dbContext.TaskDetails.FindAsync(taskId);
-            if (task == null)
-                return false;
+            try
+            {
+                this.logger.LogInformation($"[TaskWriteRepository:DeleteTask] recieved event task id: {taskId}");
+                var task = await _dbContext.TaskDetails.FindAsync(taskId);
+                if (task == null)
+                    return false;
 
-            _dbContext.TaskDetails.Remove(task);
-            _dbContext.SaveChanges();
-            return true;
+                _dbContext.TaskDetails.Remove(task);
+                _dbContext.SaveChanges();
+                this.logger.LogInformation($"[TaskWriteRepository:DeleteTask] success event task id:{taskId}");
+                return true;
+            }
+            catch (Exception ex)
+            {
+
+                this.logger.LogDebug($"[TaskWriteRepository:DeleteTask] exception occurred: {ex.Message} - Stacktrace: {ex.StackTrace}");
+                return await Task.FromResult(false);
+            }
+           
         }
     }
 }

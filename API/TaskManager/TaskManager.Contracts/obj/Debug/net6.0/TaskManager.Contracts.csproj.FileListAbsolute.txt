@@ -9,3 +9,14 @@ C:\Users\Kasunjith(KasunjithL\OneDrive - Tech One Global Singapore Pte. Ltd\Desk
 C:\Users\Kasunjith(KasunjithL\OneDrive - Tech One Global Singapore Pte. Ltd\Desktop\TASKAPPLICATION\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\refint\TaskManager.Contracts.dll
 C:\Users\Kasunjith(KasunjithL\OneDrive - Tech One Global Singapore Pte. Ltd\Desktop\TASKAPPLICATION\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\TaskManager.Contracts.pdb
 C:\Users\Kasunjith(KasunjithL\OneDrive - Tech One Global Singapore Pte. Ltd\Desktop\TASKAPPLICATION\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\ref\TaskManager.Contracts.dll
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\bin\Debug\net6.0\TaskManager.Contracts.deps.json
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\bin\Debug\net6.0\TaskManager.Contracts.dll
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\bin\Debug\net6.0\TaskManager.Contracts.pdb
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\TaskManager.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\TaskManager.Contracts.AssemblyInfoInputs.cache
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\TaskManager.Contracts.AssemblyInfo.cs
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\TaskManager.Contracts.csproj.CoreCompileInputs.cache
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\TaskManager.Contracts.dll
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\refint\TaskManager.Contracts.dll
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\TaskManager.Contracts.pdb
+C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Contracts\obj\Debug\net6.0\ref\TaskManager.Contracts.dll
