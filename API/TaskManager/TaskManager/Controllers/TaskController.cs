@@ -30,8 +30,6 @@ namespace TaskManager.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllTasks()
         {
-            //var tasks = await taskService.GetAllTasksAsync();
-            //return Ok(tasks);
             try
             {
                 var client = this.mediator.CreateRequestClient<GetAllTaskQuery>();
@@ -48,7 +46,7 @@ namespace TaskManager.API.Controllers
                 else
                 {
                     this.logger.LogInformation($"Event not succeeded in TaskController:GetAllTasks. Message: {response.Message.Message}");
-                    return Ok(response.Message);
+                    return BadRequest(response.Message);
                 }
             }
             catch (Exception ex)
@@ -82,7 +80,7 @@ namespace TaskManager.API.Controllers
                 else
                 {
                     this.logger.LogInformation($"Event not succeeded in TaskController:GetTaskById. Message: {response.Message.Message}");
-                    return Ok(response.Message);
+                    return NotFound(response.Message);
                 }
             }
             catch (Exception ex)
@@ -107,12 +105,13 @@ namespace TaskManager.API.Controllers
                 if (response.Message.Succeeded)
                 {
                     this.logger.LogInformation($"Event succeeded in TaskController:AddTask");
-                    return Ok(response.Message);
+                    //return Ok(response.Message);
+                    return CreatedAtAction(nameof(GetTaskById), new { id = response.Message.Payload.taskDetail.Id }, response.Message);
                 }
                 else
                 {
                     this.logger.LogInformation($"Event not succeeded in TaskController:AddTask. Message: {response.Message.Message}");
-                    return Ok(response.Message);
+                    return BadRequest(response.Message);
                 }
             }
             catch (Exception ex)
@@ -145,7 +144,7 @@ namespace TaskManager.API.Controllers
                 else
                 {
                     this.logger.LogInformation($"Event not succeeded in TaskController:UpdateTask. Message: {response.Message.Message}");
-                    return Ok(response.Message);
+                    return BadRequest(response.Message);
                 }
             }
             catch (Exception ex)
