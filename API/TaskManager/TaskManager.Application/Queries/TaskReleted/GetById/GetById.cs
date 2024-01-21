@@ -36,7 +36,7 @@ namespace TaskManager.Application.Queries.TaskReleted.GetById
 
                     var response = new GetByIdResponse
                     {
-                        taskDetail = findTask
+                        task = findTask
                     };
 
                     await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Success("Successfuly get task", response));
@@ -45,7 +45,7 @@ namespace TaskManager.Application.Queries.TaskReleted.GetById
                 else
                 {
                     this.logger.LogInformation($"[GetById] Failed to get task id {context.Message.Id}");
-                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail("Failed to get task"));
+                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail("Failed to get task Invalid Task Id"));
                    
                 }
             }

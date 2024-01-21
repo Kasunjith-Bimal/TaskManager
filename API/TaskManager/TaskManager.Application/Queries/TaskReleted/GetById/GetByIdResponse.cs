@@ -10,7 +10,7 @@ namespace TaskManager.Application.Queries.TaskReleted.GetById
 {
     public class GetByIdResponse
     {
-        public TaskDetail taskDetail { get; set; }
+        public TaskDetail task { get; set; }
 
     }
 }

@@ -57,7 +57,7 @@ namespace TaskManager.Application.Command.TaskReleted.UpdateTask
 
                         var response = new UpdateTaskResponse
                         {
-                            taskDetail = updatedTaskDetail
+                            task = updatedTaskDetail
                         };
 
                         await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Success("Task update successfully.", response));

@@ -10,7 +10,7 @@ namespace TaskManager.Application.Command.TaskReleted.CreateTask
 {
     public class CreateTaskResponse
     {
-        public TaskDetail taskDetail { get; set; }
+        public TaskDetail task { get; set; }
 
     }
 }

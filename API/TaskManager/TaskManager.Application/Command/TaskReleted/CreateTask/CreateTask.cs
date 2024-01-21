@@ -41,7 +41,7 @@ namespace TaskManager.Application.Command.TaskReleted.CreateTask
                     
                     var response = new CreateTaskResponse
                     {
-                        taskDetail = addedTaskDetail
+                        task = addedTaskDetail
                     };
 
                     await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Success("Task added successfully.", response));

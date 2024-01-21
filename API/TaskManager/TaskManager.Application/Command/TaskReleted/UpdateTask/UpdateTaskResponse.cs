@@ -10,7 +10,7 @@ namespace TaskManager.Application.Command.TaskReleted.UpdateTask
 {
     public class UpdateTaskResponse
     {
-        public TaskDetail taskDetail { get; set; }
+        public TaskDetail task { get; set; }
 
     }
 }

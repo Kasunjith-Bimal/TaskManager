@@ -106,7 +106,7 @@ namespace TaskManager.API.Controllers
                 {
                     this.logger.LogInformation($"Event succeeded in TaskController:AddTask");
                     //return Ok(response.Message);
-                    return CreatedAtAction(nameof(GetTaskById), new { id = response.Message.Payload.taskDetail.Id }, response.Message);
+                    return CreatedAtAction(nameof(GetTaskById), new { id = response.Message.Payload.task.Id }, response.Message);
                 }
                 else
                 {
