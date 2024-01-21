@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,8 +28,8 @@ namespace TaskManager.Infrastructure.Persistence.Repository.TaskRepository
             try
             {
                 this.logger.LogInformation($"[TaskWriteRepository:AddTask] recieved event task title : {task.Title}");
-                _dbContext.TaskDetails.Add(task);
-                _dbContext.SaveChanges();
+                this._dbContext.TaskDetails.Add(task);
+                this._dbContext.SaveChanges();
                 this.logger.LogInformation($"[TaskWriteRepository:AddTask] success event task id:{task.Id} title : {task.Title}");
                 return task;
             }
@@ -45,8 +46,9 @@ namespace TaskManager.Infrastructure.Persistence.Repository.TaskRepository
             try
             {
                 this.logger.LogInformation($"[TaskWriteRepository:UpdateTask] recieved event task id: {task.Id} title : {task.Title}");
-                _dbContext.TaskDetails.Update(task);
-                _dbContext.SaveChanges();
+                //this._dbContext.TaskDetails.Update(task);
+                this._dbContext.Entry(task).State = EntityState.Modified;
+                this._dbContext.SaveChanges();
                 this.logger.LogInformation($"[TaskWriteRepository:UpdateTask] success event task id:{task.Id} title : {task.Title}");
                 return task;
             }

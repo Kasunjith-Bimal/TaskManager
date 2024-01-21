@@ -27,31 +27,31 @@ namespace TaskManager.Application.Queries.TaskReleted.GetById
             {
                 this.logger.LogInformation($"[GetById] Received event");
                
-                this.logger.LogInformation($"[GetById] taskService GetTaskById method call");
+                this.logger.LogInformation($"[GetById] TaskService GetTaskById method call");
                 var findTask =  await this.taskService.GetTaskByIdAsync(context.Message.Id);
 
                 if (findTask != null)
                 {
-                    this.logger.LogInformation($"[GetById] task get by id successfuly");
+                    this.logger.LogInformation($"[GetById] Successfuly get task id {context.Message.Id}");
 
                     var response = new GetByIdResponse
                     {
                         taskDetail = findTask
                     };
 
-                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Success("successfuly get task", response));
+                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Success("Successfuly get task", response));
 
                 }
                 else
                 {
-                    this.logger.LogInformation($"[GetById] fail to get task");
-                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail("fail to get task"));
+                    this.logger.LogInformation($"[GetById] Failed to get task id {context.Message.Id}");
+                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail("Failed to get task"));
                    
                 }
             }
             catch (Exception ex)
             {
-                this.logger.LogDebug(ex, $"[GetById] - exception occored. stacktrace: {ex.StackTrace}");
+                this.logger.LogDebug(ex, $"[GetById] id {context.Message.Id} - exception occored. stacktrace: {ex.StackTrace}");
                 await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail(ex.Message));
             }
         }

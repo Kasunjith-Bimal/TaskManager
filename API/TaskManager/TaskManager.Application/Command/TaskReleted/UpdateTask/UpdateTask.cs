@@ -38,31 +38,49 @@ namespace TaskManager.Application.Command.TaskReleted.UpdateTask
                     await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail("Id cannot be empty"));
                 }
 
-                this.logger.LogInformation($"[UpdateTask] taskService Update Task method call taskid : {context.Message.taskDetail.Id}");
-                var updatedTaskDetail =  this.taskService.UpdateTask(context.Message.taskDetail);
-
-                if (updatedTaskDetail != null)
+                if (context.Message.taskDetail.Id != context.Message.Id)
                 {
-                    this.logger.LogInformation($"[UpdateTask] task update successfuly task id : {updatedTaskDetail.Id} title : {updatedTaskDetail.Title}");
-                    
-                    var response = new UpdateTaskResponse
+                    this.logger.LogInformation($"[UpdateTask] Id missmatch");
+                    await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail("Id missmatch"));
+                }
+
+                var getTask = await this.taskService.GetTaskByIdAsync(context.Message.Id);
+
+                if(getTask != null)
+                {
+                    this.logger.LogInformation($"[UpdateTask] TaskService UpdateTask method call taskid : {context.Message.taskDetail.Id}");
+                    var updatedTaskDetail = this.taskService.UpdateTask(context.Message.taskDetail);
+
+                    if (updatedTaskDetail != null)
                     {
-                        taskDetail = updatedTaskDetail
-                    };
+                        this.logger.LogInformation($"[UpdateTask] Task update successfully task id : {updatedTaskDetail.Id} title : {updatedTaskDetail.Title}");
 
-                    await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Success("Task update successfuly", response));
+                        var response = new UpdateTaskResponse
+                        {
+                            taskDetail = updatedTaskDetail
+                        };
 
+                        await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Success("Task update successfully.", response));
+
+                    }
+                    else
+                    {
+                        this.logger.LogInformation($"[UpdateTask] Failed to update task id ; {context.Message.taskDetail.Id}");
+                        await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail("Failed to update task."));
+
+                    }
                 }
                 else
                 {
-                    this.logger.LogInformation($"[UpdateTask] task update fail id ; {context.Message.taskDetail.Id}");
-                    await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail("Task update fail"));
-                   
+                    this.logger.LogInformation($"[UpdateTask] Invalid Task Id ; {context.Message.taskDetail.Id}");
+                    await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail("Invalid Task Id."));
                 }
+
+                
             }
             catch (Exception ex)
             {
-                this.logger.LogDebug(ex, $"[UpdateTask] Title: {context.Message.taskDetail.Title} - exception occored. stacktrace: {ex.StackTrace}");
+                this.logger.LogDebug(ex, $"[UpdateTask] id : {context.Message.taskDetail.Id} Title: {context.Message.taskDetail.Title} - exception occored. stacktrace: {ex.StackTrace}");
                 await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail(ex.Message));
             }
         }

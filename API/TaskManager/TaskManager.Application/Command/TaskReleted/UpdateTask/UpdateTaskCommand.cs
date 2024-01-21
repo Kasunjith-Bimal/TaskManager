@@ -10,6 +10,8 @@ namespace TaskManager.Application.Command.TaskReleted.UpdateTask
     public class UpdateTaskCommand
     {
         public TaskDetail taskDetail { get; set; }
+
+        public long Id { get; set; }
      
     }
 }

@@ -11,8 +11,13 @@ namespace TaskManager.API.Configuration
     {
         public static void TaskManagerServices(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment environment)
         {
-            services.AddDbContext<TaskManagerDbContext>(options =>
-           options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<TaskManagerDbContext>(
+                options =>
+                {
+                    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+                    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+                }
+              );
 
             //application Serrvice
             services.AddScoped<ITaskService, TaskService>();

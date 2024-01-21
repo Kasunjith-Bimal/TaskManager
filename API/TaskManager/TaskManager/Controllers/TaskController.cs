@@ -127,13 +127,14 @@ namespace TaskManager.API.Controllers
         {
             try
             {
-                if (id != task.Id)
-                    return BadRequest();
+                //if (id != task.Id)
+                //    return BadRequest();
 
                 var client = this.mediator.CreateRequestClient<UpdateTaskCommand>();
                 var response = await client.GetResponse<ResponseWrapper<UpdateTaskResponse>>(new UpdateTaskCommand
                 {
-                    taskDetail = task
+                    taskDetail = task,
+                    Id = id
                 });
 
                 if (response.Message.Succeeded)
@@ -178,9 +179,10 @@ namespace TaskManager.API.Controllers
                     return Ok(response.Message);
                 }
                 else
-                {
+                { 
                     this.logger.LogInformation($"Event not succeeded in TaskController:DeleteTask. Message: {response.Message.Message}");
-                    return Ok(response.Message);
+                    return NotFound(response.Message);
+
                 }
             }
             catch (Exception ex)

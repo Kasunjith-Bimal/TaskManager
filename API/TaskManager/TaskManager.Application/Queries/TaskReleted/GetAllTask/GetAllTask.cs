@@ -27,25 +27,25 @@ namespace TaskManager.Application.Queries.TaskReleted.GetAllTask
             {
                 this.logger.LogInformation($"[GetAllTask] Received event");
                
-                this.logger.LogInformation($"[GetAllTask] taskService GetAllTasksAsync method call");
+                this.logger.LogInformation($"[GetAllTask] TaskService GetAllTasksAsync method call");
                 var allTasks =  await this.taskService.GetAllTasksAsync();
 
                 if (allTasks != null)
                 {
-                    this.logger.LogInformation($"[GetAllTask] get successfuly");
+                    this.logger.LogInformation($"[GetAllTask] Successfuly get all tasks");
 
                     var response = new GetAllTaskResponse
                     {
                         tasks = allTasks
                     };
 
-                    await context.RespondAsync(ResponseWrapper<GetAllTaskResponse>.Success("successfuly get all tasks", response));
+                    await context.RespondAsync(ResponseWrapper<GetAllTaskResponse>.Success("Successfuly get all tasks", response));
 
                 }
                 else
                 {
-                    this.logger.LogInformation($"[GetAllTask] get fail");
-                    await context.RespondAsync(ResponseWrapper<GetAllTaskResponse>.Fail("fail to get all tasks"));
+                    this.logger.LogInformation($"[GetAllTask] Failed to get all tasks");
+                    await context.RespondAsync(ResponseWrapper<GetAllTaskResponse>.Fail("Failed to get all tasks"));
                    
                 }
             }

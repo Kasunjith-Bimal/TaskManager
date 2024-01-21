@@ -32,25 +32,25 @@ namespace TaskManager.Application.Command.TaskReleted.CreateTask
                     await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Title cannot be empty"));
                 }
 
-                this.logger.LogInformation($"[CreateTask] taskService addTask method call");
+                this.logger.LogInformation($"[CreateTask] TaskService addTask method call");
                 var addedTaskDetail =  this.taskService.AddTask(context.Message.taskDetail);
 
                 if (addedTaskDetail != null)
                 {
-                    this.logger.LogInformation($"[CreateTask] task added successfuly task id : {addedTaskDetail.Id} title : {addedTaskDetail.Title}");
+                    this.logger.LogInformation($"[CreateTask] Task added successfully task id : {addedTaskDetail.Id} title : {addedTaskDetail.Title}");
                     
                     var response = new CreateTaskResponse
                     {
                         taskDetail = addedTaskDetail
                     };
 
-                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Success("Task added successfuly", response));
+                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Success("Task added successfully.", response));
 
                 }
                 else
                 {
-                    this.logger.LogInformation($"[CreateTask] task added fail");
-                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Task added fail"));
+                    this.logger.LogInformation($"[CreateTask] Failed to Add task title {context.Message.taskDetail.Title}");
+                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Failed to Add task."));
                    
                 }
             }
