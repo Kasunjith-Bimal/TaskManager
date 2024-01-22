@@ -36,7 +36,7 @@ namespace TaskManager.Application.Queries.TaskReleted.GetAllTask
 
                     var response = new GetAllTaskResponse
                     {
-                        tasks = allTasks
+                        tasks = allTasks.OrderByDescending(x => x.DueDate).ToList()
                     };
 
                     await context.RespondAsync(ResponseWrapper<GetAllTaskResponse>.Success("Successfuly get all tasks", response));

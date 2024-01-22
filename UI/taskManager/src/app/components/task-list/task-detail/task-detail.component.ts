@@ -17,9 +17,6 @@ import { CustomToasterComponent } from '../../custom-toaster/custom-toaster.comp
 })
 export class TaskDetailComponent implements OnInit {
 
-  /**
-   *
-   */
   constructor(private route: ActivatedRoute,private taskService : TaskService ) {
 
   }

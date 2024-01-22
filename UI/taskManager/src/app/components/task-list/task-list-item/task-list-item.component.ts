@@ -29,6 +29,7 @@ export class TaskListItemComponent implements OnInit {
   editTask(taskId : number ){
 
   }
+ 
 
  
 
