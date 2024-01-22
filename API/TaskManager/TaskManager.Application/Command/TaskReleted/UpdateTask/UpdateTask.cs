@@ -32,6 +32,12 @@ namespace TaskManager.Application.Command.TaskReleted.UpdateTask
                     await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail("Title cannot be empty"));
                 }
 
+                if (String.IsNullOrEmpty(context.Message.taskDetail.Description))
+                {
+                    this.logger.LogInformation($"[UpdateTask] Description cannot be empty");
+                    await context.RespondAsync(ResponseWrapper<UpdateTaskResponse>.Fail("Description cannot be empty"));
+                }
+
                 if (context.Message.taskDetail.Id == 0)
                 {
                     this.logger.LogInformation($"[UpdateTask] Id cannot be empty");

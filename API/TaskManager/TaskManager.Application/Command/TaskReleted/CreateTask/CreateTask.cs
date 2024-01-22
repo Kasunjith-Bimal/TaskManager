@@ -32,6 +32,12 @@ namespace TaskManager.Application.Command.TaskReleted.CreateTask
                     await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Title cannot be empty"));
                 }
 
+                if (String.IsNullOrEmpty(context.Message.taskDetail.Description))
+                {
+                    this.logger.LogInformation($"[CreateTask] Description cannot be empty");
+                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Description cannot be empty"));
+                }
+
                 this.logger.LogInformation($"[CreateTask] TaskService addTask method call");
                 var addedTaskDetail =  this.taskService.AddTask(context.Message.taskDetail);
 
