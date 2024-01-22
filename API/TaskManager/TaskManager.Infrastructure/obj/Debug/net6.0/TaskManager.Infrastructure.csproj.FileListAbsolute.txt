@@ -28,3 +28,18 @@ C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\Tas
 C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\refint\TaskManager.Infrastructure.dll
 C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.pdb
 C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\ref\TaskManager.Infrastructure.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\bin\Debug\net6.0\TaskManager.Infrastructure.deps.json
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\bin\Debug\net6.0\TaskManager.Infrastructure.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\bin\Debug\net6.0\TaskManager.Infrastructure.pdb
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\bin\Debug\net6.0\TaskManager.Domain.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\bin\Debug\net6.0\TaskManager.Domain.pdb
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.AssemblyInfo.cs
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.csproj.CopyComplete
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\refint\TaskManager.Infrastructure.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\TaskManager.Infrastructure.pdb
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Infrastructure\obj\Debug\net6.0\ref\TaskManager.Infrastructure.dll

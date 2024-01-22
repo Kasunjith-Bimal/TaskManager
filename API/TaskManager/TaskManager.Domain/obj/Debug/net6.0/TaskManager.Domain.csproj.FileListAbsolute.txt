@@ -21,3 +21,15 @@ C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\Tas
 C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.pdb
 C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\ref\TaskManager.Domain.dll
 C:\Users\Kasunjith Bimal\Desktop\TaskApplication\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.csproj.AssemblyReference.cache
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\bin\Debug\net6.0\TaskManager.Domain.deps.json
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\bin\Debug\net6.0\TaskManager.Domain.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\bin\Debug\net6.0\TaskManager.Domain.pdb
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.csproj.AssemblyReference.cache
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.AssemblyInfoInputs.cache
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.AssemblyInfo.cs
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\refint\TaskManager.Domain.dll
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\TaskManager.Domain.pdb
+C:\Users\Kasunjith Bimal\Desktop\Task Application\TaskManager\API\TaskManager\TaskManager.Domain\obj\Debug\net6.0\ref\TaskManager.Domain.dll

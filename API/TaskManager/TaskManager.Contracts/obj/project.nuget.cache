@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SQGCDnKos/S/Gi82Vf+CElNdz0eRgckFNwd+v/OpYDTA8e81jVuX/e/LZISUP9zA9kGrkN8wY2BhWF2ovpsCTA==",
+  "dgSpecHash": "llgoFpbDMO+YDFD8guKjRMnr5U4k91oP8msofQLba+n+qzSOVfgaZEZu5LrcNERzXXwzKqqy6xi9ne+rKZT7nw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kasunjith Bimal\\Desktop\\TaskApplication\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj",
+  "projectFilePath": "C:\\Users\\Kasunjith Bimal\\Desktop\\Task Application\\TaskManager\\API\\TaskManager\\TaskManager.Contracts\\TaskManager.Contracts.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

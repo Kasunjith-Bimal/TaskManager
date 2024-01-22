@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;" *ngIf="task">
+    <div class="card-body">
+      <h5 class="card-title">{{task.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{task.dueDate | date:'medium'}}</h6>
+      <p class="card-text">{{task.description}}</p>
+      <a class="nav-link"  routerLink="/tasks" >back</a>
+      <a class="nav-link" routerLink="/tasks/add">Add Details</a>
+      <a class="nav-link" routerLink="/tasks/{{task.id}}/edit">Edit Details</a>
+    </div>
+</div>

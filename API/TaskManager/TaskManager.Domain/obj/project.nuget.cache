@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1PXZrPnHWIf2S1Ek2UWDvwPingiGl9dOKue+HlnRPEz8OZmYi8Tf6EVS6aemGu3UZ5J9cMeapoIJoinfyfkbRw==",
+  "dgSpecHash": "Ee5Al7QZ2f9dL8FnMXEOJl12MpEsDxfzww7wvlUUtyhvGviMfp+4dzfFGDliB33+8D4nyserAfvl8gpaKnAaQQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kasunjith Bimal\\Desktop\\TaskApplication\\TaskManager\\API\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Kasunjith Bimal\\Desktop\\Task Application\\TaskManager\\API\\TaskManager\\TaskManager.Domain\\TaskManager.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kasunjith Bimal\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\Kasunjith Bimal\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
