@@ -13,33 +13,18 @@ try
 
     // Add services to the container.
     var allowedHosts = builder.Configuration.GetValue(typeof(string), "AllowedHosts") as string;
-    
+
     builder.Services.AddCors(options =>
     {
-        options.AddDefaultPolicy(
-            builder =>
-            {
-                if (allowedHosts == null || allowedHosts == "*")
-                {
-                    builder.AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader();
-                    return;
-                }
-                string[] hosts;
-                if (allowedHosts.Contains(';'))
-                    hosts = allowedHosts.Split(';');
-                else
-                {
-                    hosts = new string[1];
-                    hosts[0] = allowedHosts;
-                }
-                builder.WithOrigins(hosts)
-                .AllowAnyMethod()
+        options.AddPolicy("AllowAnyOrigin", builder =>
+        {
+            builder
+                .AllowAnyOrigin()
                 .AllowAnyHeader()
-                .AllowCredentials();
-            });
+                .AllowAnyMethod();
+        });
     });
+
 
     //manage all services 
     builder.Services.TaskManagerServices(builder.Configuration, builder.Environment);
@@ -65,11 +50,7 @@ try
     app.UseAuthorization();
 
     //Configure cors
-    app.UseCors(x => x
-           .AllowAnyMethod()
-           .AllowAnyHeader()
-           .SetIsOriginAllowed(origin => true)
-           .AllowCredentials());
+    app.UseCors("AllowAnyOrigin");
 
 
     app.MapControllers();

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="input-group">
+        <div class="form-outline" data-mdb-input-init>
+          <input type="search" name="search" [(ngModel)]="searchText"  placeholder="search..."/>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table-row">
+          <div class="table-cell">Title</div>
+          <div class="table-cell">Description</div>
+          <div class="table-cell">DueDate</div>
+          <div class="table-cell">Action</div>
+        </div>
+    
+        <app-task-list-item *ngFor="let task of tasks | search: searchText" [taskdetail]="task" (deleteTaskEvent)="deleteTaskEventClick($event)"></app-task-list-item>
+    </div>
+</div>
