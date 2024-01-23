@@ -37,7 +37,9 @@ folder inside - [API/TaskManager/SQL/TaskManageSqlScrip](https://github.com/Kasu
 change enviroment.ts 
 https://github.com/Kasunjith-Bimal/TaskManager/tree/main/UIOldLazzyLoading/src/environments
 ```
-npm install
+export const environment = {
+    baseUrl: '{YourAPIbaseURL}/'
+};
 ```
 
 Install the packages:
