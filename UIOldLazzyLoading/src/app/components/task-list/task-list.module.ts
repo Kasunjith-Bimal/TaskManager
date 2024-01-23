@@ -8,6 +8,7 @@ import { TaskListItemComponent } from './task-list-item/task-list-item.component
 import { CommonModule } from '@angular/common';
 import { SearchPipe } from 'src/app/pipe/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoaderComponent } from '../loader/loader.component';
 
 const routes: Routes = [
   { path: '', component: TaskListComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     TaskListComponent,
     TaskListItemComponent,
     TaskDetailComponent,
-    TaskFormComponent
+    TaskFormComponent,
+    LoaderComponent
   ],
   imports: [
     FormsModule,

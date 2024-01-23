@@ -11,19 +11,22 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TaskDetailComponent implements OnInit {
   public task : Task | undefined;
+  isLoading : boolean = false
   constructor(private route: ActivatedRoute,private taskService : TaskService,private toastr: ToastrService,private router:Router ) {
 
   }
   ngOnInit(): void {
     
     this.route.paramMap.subscribe(params => {
-      
+    this.isLoading = true;
      let taskId = Number(params.get("id"));
      console.log(taskId);
      this.taskService.getTaskById(taskId).subscribe((response:any) => {
       if(response.succeeded){
        this.task = response.payload.task;
+       this.isLoading = false;
       }else{
+        this.isLoading = false;
          this.toastr.error(response.message, 'System Error. Please contact administrator',{timeOut: 3000,extendedTimeOut: 0});
          setTimeout(() => {
           this.router.navigate(['tasks']);
@@ -33,6 +36,7 @@ export class TaskDetailComponent implements OnInit {
  
       },
       error => {
+        this.isLoading = false;
          this.toastr.error(error.error.message, 'System Error. Please contact administrator',{timeOut: 3000,extendedTimeOut: 0});
          setTimeout(() => {
           this.router.navigate(['tasks']);

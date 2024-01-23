@@ -12,7 +12,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TaskFormComponent implements OnInit {
   public isCreateTask : boolean = true;
- 
+  isLoading : boolean = false;
   taskForm!: FormGroup;
   taskId : number = 0;
   public task: Task = {
@@ -39,6 +39,7 @@ export class TaskFormComponent implements OnInit {
     
     this.route.params.subscribe(params => {
       if (params['id']) {
+        this.isLoading = true;
         this.isCreateTask = false;
         this.taskId = Number(params['id'])
         this.loadtaskData(this.taskId);
@@ -69,7 +70,9 @@ export class TaskFormComponent implements OnInit {
           description: this.task.description,
           dueDate: taskDate.split('T')[0]
         });
+        this.isLoading = false;
         }else{
+          this.isLoading = false;
           this.toastr.error(response.message, 'System Error. Please contact administrator',{timeOut: 3000,extendedTimeOut: 0});
           setTimeout(() => {
             this.router.navigate(['tasks']);
@@ -78,6 +81,7 @@ export class TaskFormComponent implements OnInit {
         }
       },
       error => {
+        this.isLoading = false;
          this.toastr.error(error.error.message, 'System Error. Please contact administrator',{timeOut: 3000,extendedTimeOut: 0});
          setTimeout(() => {
           this.router.navigate(['tasks']);
