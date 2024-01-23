@@ -1,0 +1,69 @@
+
+<div class="container mt-4 additem">
+    <form #myForm="ngForm" >
+      <!-- Inline Text Box with Required Validation -->
+      <div class="form-group">
+        <label for="inlineTextBox">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="title"
+          [(ngModel)]="task.title"
+          required
+          ngModel
+          #title="ngModel"
+          maxlength="100"
+        />
+        <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert">
+            <div *ngIf="title.errors?.['required']">Description is required.</div>
+            <!-- <div *ngIf="title.errors?.['maxlength']">  Maximum length is 100 characters.</div> -->
+        </div>
+      </div>
+  
+      <!-- Text Area with Max Length Validation -->
+      <div class="form-group">
+        <label for="textArea">Text Area:</label>
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          [(ngModel)]="task.description"
+          maxlength="200"
+          required
+          ngModel
+          #description ="ngModel"
+        ></textarea>
+        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+            <div *ngIf="description.errors?.['required']">Description is required.</div>
+            <!-- <div *ngIf="description.errors?.['maxlength']">  Maximum length is 200 characters.</div> -->
+        </div>
+      </div>
+  
+      <!-- Date Input with Required Validation -->
+      <div class="form-group">
+        <label for="dateInput">Date:</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dateInput"
+          name="dateInput"
+          [(ngModel)]="task.dueDate"
+          required
+          ngModel
+          #dateInput ="ngModel"
+        />
+
+        <div *ngIf="dateInput.invalid && (dateInput.dirty || dateInput.touched)" class="alert">
+            <div *ngIf="dateInput.errors?.['required']">Date is required.</div>
+          
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;" [disabled]="myForm.invalid" (click)="addTask(task)">Submit</button>
+       </div>
+     
+    </form>
+  </div>

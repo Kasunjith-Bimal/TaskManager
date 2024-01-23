@@ -1,8 +1,8 @@
 
 <app-loader *ngIf="isLoading"></app-loader>
 <div class="container">
-    
-    <div class="input-group" style="padding-bottom: 20px;">
+    <app-task-add (addedTaskEvent)="addedTaskEventClick($event)"></app-task-add>
+    <div class="input-group" style="padding-bottom: 20px;padding-top:120;">
         <div class="form-outline" data-mdb-input-init>
           <input type="search" name="search" [(ngModel)]="searchText"  placeholder="search..."/>
         </div>

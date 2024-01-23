@@ -47,9 +47,12 @@ deleteTaskEventClick(taskId : number){
   this.isLoading = false;
 }
 
-AddTask(){
-  
+addedTaskEventClick(task : Task){
+  this.tasks.unshift(task);
 }
+
+
+
 
   
 }
