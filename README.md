@@ -19,8 +19,8 @@ folder inside - TaskManageSqlScript
 
 #UI Project - UIOldLazzyLoading Project this fully developed Ui project
 
-## Development Setup
-
+## Development Setup UIOldLazzyLoading
+## RUN ONLY UIOldLazzyLoading folder UI
 ### Prerequisites
 
 - Install [Node.js] which includes [Node Package Manager][npm]
