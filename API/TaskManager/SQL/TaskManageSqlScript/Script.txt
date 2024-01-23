@@ -1,3 +1,6 @@
+GO
+Create Database [DatabaseName]
+GO
 USE [DatabaseName]
 GO
 /****** Object:  Table [dbo].[TaskDetails]    Script Date: 1/23/2024 7:36:47 PM ******/
