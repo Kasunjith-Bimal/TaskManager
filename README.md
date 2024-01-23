@@ -6,8 +6,6 @@ Task Manager is a web application that allows users to create, update, and delet
 
 Insert data base first 
 
-in app seting changes  - API Project 
-
 create database using sql server 
 
  sql script -
@@ -19,10 +17,13 @@ or  Run Backup -  API/TaskManager/SQL/TaskManageSqlScript
 
 folder inside - [API/TaskManager/SQL/TaskManageSqlScrip](https://github.com/Kasunjith-Bimal/TaskManager/tree/main/API/TaskManager/SQL/TaskManagerDbBackup)t
 
+in app seting changes  - API Project
 
+```
 "ConnectionStrings": {
   "DefaultConnection": "Server={{severName}};Database={{databaseName}};Trusted_Connection=True;"
 },
+```
 
 ## UI 
 #UI Project - UIOldLazzyLoading Project this fully developed Ui project
