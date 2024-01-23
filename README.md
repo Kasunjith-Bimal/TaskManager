@@ -9,17 +9,15 @@ Task Manager is a web application that allows users to create, update, and delet
  - create database using sql server 
 
 - using script
-   ```
-   sql script -
-  
+
    folder inside - [API/TaskManager/SQL/TaskManageSqlScript](https://github.com/Kasunjith-Bimal/TaskManager/tree/main/API/TaskManager/SQL/TaskManageSqlScript)
-  ```
+
  - using backup
- ```
+
    Backup  -
  
    folder inside - [API/TaskManager/SQL/TaskManageSqlScrip](https://github.com/Kasunjith-Bimal/TaskManager/tree/main/API/TaskManager/SQL/TaskManagerDbBackup)t
- ```
+
 
 
 in app seting changes  - API Project
