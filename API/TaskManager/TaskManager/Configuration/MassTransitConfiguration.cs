@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using TaskManager.API.Extensions;
 using TaskManager.Application.Command.TaskReleted.CreateTask;
 using TaskManager.Application.Command.TaskReleted.DeleteTask;
 using TaskManager.Application.Command.TaskReleted.UpdateTask;
@@ -20,7 +21,9 @@ namespace TaskManager.API.Configuration
                 // queries
                 x.AddConsumer<GetAllTask>();
                 x.AddConsumer<GetById>();
+                x.ConfigureMediator((context, cfg) => cfg.UseHttpContextScopeFilter(context));
             });
+
         }
     }
 }

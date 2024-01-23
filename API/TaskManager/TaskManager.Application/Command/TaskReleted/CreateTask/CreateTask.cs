@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,12 @@ namespace TaskManager.Application.Command.TaskReleted.CreateTask
     {
         private readonly ILogger<CreateTask> logger;
         private readonly ITaskService taskService;
-
-        public CreateTask(ILogger<CreateTask> logger, ITaskService taskService)
+        private readonly IConfiguration configuration;
+        public CreateTask(ILogger<CreateTask> logger, ITaskService taskService, IConfiguration configuration)
         {
             this.logger = logger;
             this.taskService = taskService;
+            this.configuration = configuration;
         }
 
         public async Task Consume(ConsumeContext<CreateTaskCommand> context)
@@ -26,39 +28,45 @@ namespace TaskManager.Application.Command.TaskReleted.CreateTask
             try
             {
                 this.logger.LogInformation($"[CreateTask] Received event");
-                if (String.IsNullOrEmpty(context.Message.taskDetail.Title))
+                if (!String.IsNullOrEmpty(context.Message.taskDetail.Title))
                 {
-                    this.logger.LogInformation($"[CreateTask] Title cannot be empty");
-                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Title cannot be empty"));
-                }
 
-                if (String.IsNullOrEmpty(context.Message.taskDetail.Description))
-                {
-                    this.logger.LogInformation($"[CreateTask] Description cannot be empty");
-                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Description cannot be empty"));
-                }
-
-                this.logger.LogInformation($"[CreateTask] TaskService addTask method call");
-                var addedTaskDetail =  this.taskService.AddTask(context.Message.taskDetail);
-
-                if (addedTaskDetail != null)
-                {
-                    this.logger.LogInformation($"[CreateTask] Task added successfully task id : {addedTaskDetail.Id} title : {addedTaskDetail.Title}");
-                    
-                    var response = new CreateTaskResponse
+                    if (!String.IsNullOrEmpty(context.Message.taskDetail.Description))
                     {
-                        task = addedTaskDetail
-                    };
+                        this.logger.LogInformation($"[CreateTask] TaskService addTask method call");
+                        var addedTaskDetail = this.taskService.AddTask(context.Message.taskDetail);
 
-                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Success("Task added successfully.", response));
+                        if (addedTaskDetail != null)
+                        {
+                            this.logger.LogInformation($"[CreateTask] Task added successfully task id : {addedTaskDetail.Id} title : {addedTaskDetail.Title}");
 
+                            var response = new CreateTaskResponse
+                            {
+                                task = addedTaskDetail
+                            };
+
+                            await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Success("Task added successfully.", response));
+
+                        }
+                        else
+                        {
+                            this.logger.LogInformation($"[CreateTask] Failed to Add task title {context.Message.taskDetail.Title}");
+                            await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Failed to Add task."));
+
+                        }
+                    }
+                    else
+                    {
+                        this.logger.LogInformation($"[CreateTask] Description cannot be empty");
+                        await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Description cannot be empty"));
+
+                    }
                 }
                 else
                 {
-                    this.logger.LogInformation($"[CreateTask] Failed to Add task title {context.Message.taskDetail.Title}");
-                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Failed to Add task."));
-                   
-                }
+                    this.logger.LogInformation($"[CreateTask] Title cannot be empty");
+                    await context.RespondAsync(ResponseWrapper<CreateTaskResponse>.Fail("Title cannot be empty"));
+                } 
             }
             catch (Exception ex)
             {

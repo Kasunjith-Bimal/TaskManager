@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace TaskManager.Application.Command.TaskReleted.DeleteTask
     {
         private readonly ILogger<DeleteTask> logger;
         private readonly ITaskService taskService;
+        private readonly IConfiguration configuration;
 
-        public DeleteTask(ILogger<DeleteTask> logger, ITaskService taskService)
+        public DeleteTask(ILogger<DeleteTask> logger, ITaskService taskService, IConfiguration configuration)
         {
             this.logger = logger;
             this.taskService = taskService;
+            this.configuration = configuration;
         }
 
         public async Task Consume(ConsumeContext<DeleteTaskCommand> context)
@@ -26,45 +29,46 @@ namespace TaskManager.Application.Command.TaskReleted.DeleteTask
             try
             {
                 this.logger.LogInformation($"[DeleteTask] Received event");
-                if (context.Message.Id == 0)
+                if (context.Message.Id != 0)
                 {
-                    this.logger.LogInformation($"[DeleteTask] Id cannot be empty");
-                    await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Fail("Id cannot be empty"));
-                }
+                    var getTask = await this.taskService.GetTaskByIdAsync(context.Message.Id);
 
-                var getTask = await this.taskService.GetTaskByIdAsync(context.Message.Id);
-
-                if(getTask != null)
-                {
-                    this.logger.LogInformation($"[DeleteTask] TaskService addTask method call");
-                    var deleteTask = await this.taskService.DeleteTask(context.Message.Id);
-
-                    if (deleteTask)
+                    if (getTask != null)
                     {
-                        this.logger.LogInformation($"[DeleteTask] Task delete successfully task id : {context.Message.Id}");
+                        this.logger.LogInformation($"[DeleteTask] TaskService addTask method call");
+                        var deleteTask = await this.taskService.DeleteTask(context.Message.Id);
 
-                        var response = new DeleteTaskResponse
+                        if (deleteTask)
                         {
-                            IsDelete = deleteTask
-                        };
+                            this.logger.LogInformation($"[DeleteTask] Task delete successfully task id : {context.Message.Id}");
 
-                        await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Success("Task delete successfully", response));
+                            var response = new DeleteTaskResponse
+                            {
+                                IsDelete = deleteTask
+                            };
 
+                            await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Success("Task delete successfully", response));
+
+                        }
+                        else
+                        {
+                            this.logger.LogInformation($"[DeleteTask] Failed to delete task id {context.Message.Id}");
+                            await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Fail("Failed to delete task."));
+
+                        }
                     }
                     else
                     {
-                        this.logger.LogInformation($"[DeleteTask] Failed to delete task id {context.Message.Id}");
-                        await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Fail("Failed to delete task."));
-
+                        this.logger.LogInformation($"[DeleteTask] Invalid Task Id {context.Message.Id}");
+                        await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Fail("Invalid Task Id."));
                     }
                 }
                 else
                 {
-                    this.logger.LogInformation($"[DeleteTask] Invalid Task Id {context.Message.Id}");
-                    await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Fail("Invalid Task Id."));
-                }
+                    this.logger.LogInformation($"[DeleteTask] Id cannot be empty");
+                    await context.RespondAsync(ResponseWrapper<DeleteTaskResponse>.Fail("Id cannot be empty"));
 
-                
+                } 
             }
             catch (Exception ex)
             {

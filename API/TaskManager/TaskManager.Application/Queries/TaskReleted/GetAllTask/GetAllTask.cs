@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,12 @@ namespace TaskManager.Application.Queries.TaskReleted.GetAllTask
     {
         private readonly ILogger<GetAllTask> logger;
         private readonly ITaskService taskService;
-
-        public GetAllTask(ILogger<GetAllTask> logger, ITaskService taskService)
+        private readonly IConfiguration configuration;
+        public GetAllTask(ILogger<GetAllTask> logger, ITaskService taskService, IConfiguration configuration)
         {
             this.logger = logger;
             this.taskService = taskService;
+            this.configuration = configuration;
         }
 
         public async Task Consume(ConsumeContext<GetAllTaskQuery> context)

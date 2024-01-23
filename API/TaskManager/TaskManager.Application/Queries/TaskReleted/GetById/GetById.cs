@@ -1,4 +1,5 @@
 ﻿using MassTransit;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,12 @@ namespace TaskManager.Application.Queries.TaskReleted.GetById
     {
         private readonly ILogger<GetById> logger;
         private readonly ITaskService taskService;
-
-        public GetById(ILogger<GetById> logger, ITaskService taskService)
+        private readonly IConfiguration configuration;
+        public GetById(ILogger<GetById> logger, ITaskService taskService, IConfiguration configuration)
         {
             this.logger = logger;
             this.taskService = taskService;
+            this.configuration = configuration;
         }
 
         public async Task Consume(ConsumeContext<GetByIdQuery> context)
@@ -26,28 +28,36 @@ namespace TaskManager.Application.Queries.TaskReleted.GetById
             try
             {
                 this.logger.LogInformation($"[GetById] Received event");
-               
-                this.logger.LogInformation($"[GetById] TaskService GetTaskById method call");
-                var findTask =  await this.taskService.GetTaskByIdAsync(context.Message.Id);
-
-                if (findTask != null)
+                if (context.Message.Id != 0)
                 {
-                    this.logger.LogInformation($"[GetById] Successfuly get task id {context.Message.Id}");
+                    this.logger.LogInformation($"[GetById] TaskService GetTaskById method call");
+                    var findTask = await this.taskService.GetTaskByIdAsync(context.Message.Id);
 
-                    var response = new GetByIdResponse
+                    if (findTask != null)
                     {
-                        task = findTask
-                    };
+                        this.logger.LogInformation($"[GetById] Successfuly get task id {context.Message.Id}");
 
-                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Success("Successfuly get task", response));
+                        var response = new GetByIdResponse
+                        {
+                            task = findTask
+                        };
 
+                        await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Success("Successfuly get task", response));
+
+                    }
+                    else
+                    {
+                        this.logger.LogInformation($"[GetById] Failed to get task id {context.Message.Id}");
+                        await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail("Failed to get task Invalid Task Id"));
+
+                    }
                 }
                 else
                 {
-                    this.logger.LogInformation($"[GetById] Failed to get task id {context.Message.Id}");
-                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail("Failed to get task Invalid Task Id"));
-                   
+                    this.logger.LogInformation($"[GetById] Invalid Task Id {context.Message.Id}");
+                    await context.RespondAsync(ResponseWrapper<GetByIdResponse>.Fail("Invalid Task Id"));
                 }
+                
             }
             catch (Exception ex)
             {
