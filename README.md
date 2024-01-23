@@ -11,7 +11,7 @@ create database using sql server
 
  sql script -
 
-folder inside - API/TaskManager/SQL/TaskManageSqlScript
+folder inside - [API/TaskManager/SQL/TaskManageSqlScript](https://github.com/Kasunjith-Bimal/TaskManager/tree/main/API/TaskManager/SQL/TaskManageSqlScript)
 
  Backup  -
 or  Run Backup -  API/TaskManager/SQL/TaskManageSqlScript
