@@ -9,9 +9,15 @@ in app seting changes  - API Project
 
 create database using sql server 
 
-run inside folder sql script -
+ sql script -
 
-folder inside - TaskManageSqlScript
+folder inside - API/TaskManager/SQL/TaskManageSqlScript
+
+ Backup  -
+or  Run Backup -  API/TaskManager/SQL/TaskManageSqlScript
+
+folder inside - API/TaskManager/SQL/TaskManageSqlScript
+
 
 "ConnectionStrings": {
   "DefaultConnection": "Server={{severName}};Database={{databaseName}};Trusted_Connection=True;"
