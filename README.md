@@ -34,6 +34,11 @@ folder inside - [API/TaskManager/SQL/TaskManageSqlScrip](https://github.com/Kasu
 - Install [Node.js] which includes [Node Package Manager][npm]
 
 ### Setting Up a Project
+change enviroment.ts 
+https://github.com/Kasunjith-Bimal/TaskManager/tree/main/UIOldLazzyLoading/src/environments
+```
+npm install
+```
 
 Install the packages:
 
