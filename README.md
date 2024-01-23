@@ -16,7 +16,7 @@ folder inside - API/TaskManager/SQL/TaskManageSqlScript
  Backup  -
 or  Run Backup -  API/TaskManager/SQL/TaskManageSqlScript
 
-folder inside - API/TaskManager/SQL/TaskManageSqlScript
+folder inside - [API/TaskManager/SQL/TaskManageSqlScrip](https://github.com/Kasunjith-Bimal/TaskManager/tree/main/API/TaskManager/SQL/TaskManagerDbBackup)t
 
 
 "ConnectionStrings": {
