@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskManager.Application.Wrappers;
+using TaskManager.Domain.Entities;
 using TaskManager.Domain.Intefaces;
 
 namespace TaskManager.Application.Queries.TaskReleted.GetAllTask
@@ -46,9 +47,13 @@ namespace TaskManager.Application.Queries.TaskReleted.GetAllTask
                 }
                 else
                 {
-                    this.logger.LogInformation($"[GetAllTask] Failed to get all tasks");
-                    await context.RespondAsync(ResponseWrapper<GetAllTaskResponse>.Fail("Failed to get all tasks"));
-                   
+                    var response = new GetAllTaskResponse
+                    {
+                        tasks = new List<TaskDetail>()
+                    };
+
+                    await context.RespondAsync(ResponseWrapper<GetAllTaskResponse>.Success("Successfuly get all tasks", response));
+
                 }
             }
             catch (Exception ex)

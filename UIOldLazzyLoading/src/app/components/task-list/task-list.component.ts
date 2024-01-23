@@ -49,6 +49,7 @@ deleteTaskEventClick(taskId : number){
 
 addedTaskEventClick(task : Task){
   this.tasks.unshift(task);
+  this.interactionService.sendTaskCount(this.tasks.length);
 }
 
 

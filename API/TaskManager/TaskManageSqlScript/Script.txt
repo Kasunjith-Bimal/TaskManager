@@ -1,0 +1,26 @@
+USE [DatabaseName]
+GO
+/****** Object:  Table [dbo].[TaskDetails]    Script Date: 1/23/2024 7:36:47 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TaskDetails](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL,
+	[DueDate] [datetime] NULL,
+ CONSTRAINT [PK_TaskDetails] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[TaskDetails] ON 
+GO
+INSERT [dbo].[TaskDetails] ([Id], [Title], [Description], [DueDate]) VALUES (2, N'Task', N'Task Description', CAST(N'2024-01-23T00:00:00.000' AS DateTime))
+GO
+INSERT [dbo].[TaskDetails] ([Id], [Title], [Description], [DueDate]) VALUES (3, N'Task B', N'Task DES B', CAST(N'2024-01-24T00:00:00.000' AS DateTime))
+GO
+SET IDENTITY_INSERT [dbo].[TaskDetails] OFF
+GO
