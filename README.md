@@ -28,11 +28,11 @@ in app seting changes  - API Project
 },
 ```
 
-## UI 
+## UI RUN ONLY UIOldLazzyLoading folder UI 
 #UI Project - UIOldLazzyLoading Project this fully developed Ui project
 [https://github.com/Kasunjith-Bimal/TaskManager/tree/main/UIOldLazzyLoading]
 ## Development Setup UIOldLazzyLoading
-## RUN ONLY UIOldLazzyLoading folder UI 
+
 ### Prerequisites
 
 - Install [Node.js] which includes [Node Package Manager][npm]
